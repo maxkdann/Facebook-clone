@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const { ObjectId } = monggose.Schema;
+const { ObjectId } = mongoose.Schema;
 
 const userSchema = mongoose.Schema(
   {
@@ -10,7 +10,7 @@ const userSchema = mongoose.Schema(
       trim: true,
       text: true,
     },
-    last_nbame: {
+    last_name: {
       type: String,
       required: [true, "last name is required"],
       trim: true,
