@@ -124,6 +124,18 @@
 }
 /*-------Footer------*/
 
+/*-------dob and gender errors------*/
+.reg_grid .input_error {
+  width: 300px;
+  position: absolute;
+  top: 70px;
+}
+.input_error_select_large {
+  left: -97%;
+  top: 14px !important;
+}
+/*-------dob and gender errors------*/
+
 /*-------Media queries------------*/
 @media (min-width: 539px) {
   .login_footer_wrap {
@@ -138,6 +150,9 @@
   .reg_grid select,
   .reg_grid label {
     width: 110px;
+  }
+  .reg_grid .input_error {
+    width: 350px;
   }
 }
 @media (min-width: 650px) {
@@ -175,6 +190,17 @@
   }
 }
 /*-------------Login--------------*/
+
+/*-------------Error and sucess styles--------------*/
+.error_text {
+  color: #b94248;
+}
+.success_text {
+  color: var(--green-color);
+}
+
+/*-------------Error and sucess styles--------------*/
+
 /*-------------Register--------------*/
 .register {
   position: absolute;

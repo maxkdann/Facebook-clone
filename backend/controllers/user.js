@@ -32,7 +32,7 @@ exports.register = async (req, res) => {
     if (check) {
       return res.status(400).json({
         message:
-          "An account with this email address already exists, try with a different email address",
+          "An account with this email address already exists, try again with a different email address",
       });
     }
 
@@ -133,7 +133,6 @@ exports.login = async (req, res) => {
       last_name: user.last_name,
       token: token,
       verified: user.verified,
-      message: "Registration Success! Please activate your email to start",
     });
   } catch (error) {
     res.status(500).json({ message: error.message });
