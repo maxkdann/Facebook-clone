@@ -1,0 +1,64 @@
+.home {
+  min-height: 100vh;
+  background: var(--bg-secondary);
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+.home_middle {
+  margin-top: 75px;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+@media (max-width: 1175px) {
+  .stories,
+  .createPost {
+    width: 84%;
+  }
+  .home_middle {
+    margin-left: 5%;
+  }
+  .right_home {
+    width: 18vw;
+  }
+}
+@media (max-width: 1030px) {
+  .left_home .left_link span,
+  .left_home .left_link .col,
+  .shortcut,
+  .shortcut_item span,
+  .splitter {
+    display: none;
+  }
+  .left_home {
+    width: 70px;
+  }
+  .left_link {
+    background: var(--bg-third);
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+  }
+  .fb_copyright {
+    display: none;
+  }
+  .home_middle {
+    position: relative;
+    margin-left: 55px;
+  }
+  .right_home {
+    width: 20vw;
+  }
+  .contacts_header_right {
+    right: 10%;
+  }
+  .contact_circle {
+    width: 20px;
+  }
+  .stories,
+  .createPost {
+    width: 100%;
+  }
+}
