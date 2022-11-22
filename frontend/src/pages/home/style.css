@@ -62,3 +62,95 @@
     width: 100%;
   }
 }
+@media (max-width: 960px) {
+  .createPost {
+    width: 93%;
+  }
+  .stories {
+    width: 95%;
+  }
+  .home_middle {
+    margin-left: 10%;
+  }
+  .right_home {
+    left: 78%;
+    width: 20vw;
+  }
+  .splitter1 {
+    width: 20vw;
+  }
+  .contact_circle {
+    width: 30px;
+  }
+  .contacts_header_right {
+    right: 0;
+  }
+}
+@media (max-width: 885px) {
+  .right_home {
+    display: none;
+  }
+  .createPost {
+    width: 110%;
+  }
+  .stories {
+    width: 113%;
+  }
+  .home_middle {
+    margin-left: 9%;
+  }
+}
+@media (max-width: 805px) {
+  .stories {
+    grid-template-columns: repeat(6, 13vw);
+  }
+  .story_profile_name,
+  .story_create_text {
+    display: none;
+  }
+  .create_story_card {
+    -filter: brightness(96%);
+  }
+  .stories .white_circle {
+    right: 5px;
+  }
+  .story_profile_pic {
+    width: 7vw;
+    height: 7vw;
+  }
+  .left_home::-webkit-scrollbar {
+    display: none;
+  }
+}
+@media (max-width: 620px) {
+  .left_home {
+    display: none;
+  }
+  .home_middle {
+    position: absolute;
+    margin-left: 0;
+  }
+  .stories,
+  .createPost {
+    width: 100%;
+  }
+  .stories .white_circle {
+    display: none;
+  }
+  .stories {
+    grid-template-columns: repeat(6, vw);
+  }
+  .story,
+  .create_story_card {
+    height: 30vw;
+  }
+  .createPost_icon {
+    font-size: 12px;
+  }
+  .open_post {
+    font-size: 16px;
+  }
+  .createPost_icon svg {
+    width: 20px;
+  }
+}
