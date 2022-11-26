@@ -18,8 +18,3 @@
   left: -10px;
   top: 14px;
 }
-@media (min-width: 539px) {
-  .register_input_wrap .input_error {
-    max-width: 100%;
-  }
-}
