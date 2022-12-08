@@ -11,6 +11,7 @@ module.exports = async function (req, res, next) {
         file.mimetype !== "image/jpeg" &&
         file.mimetype !== "image/png" &&
         file.mimetype !== "image/gif" &&
+        file.mimetype !== "image/pdf" &&
         file.mimetype !== "image/webp"
       ) {
         removeTmp(file.tempFilePath);
