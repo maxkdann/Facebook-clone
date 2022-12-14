@@ -5,7 +5,8 @@
  */
 
 const Binary = require('../driver').get().Binary;
-const isBsonType = require('./isBsonType');
+const Decimal128 = require('../types/decimal128');
+const ObjectId = require('../types/objectid');
 const isMongooseObject = require('./isMongooseObject');
 
 exports.flatten = flatten;
@@ -79,6 +80,14 @@ function modifiedPaths(update, path, result) {
 
     const _path = path + key;
     result[_path] = true;
+    if (_path.indexOf('.') !== -1) {
+      const sp = _path.split('.');
+      let cur = sp[0];
+      for (let i = 1; i < sp.length; ++i) {
+        result[cur] = true;
+        cur += '.' + sp[i];
+      }
+    }
     if (!Buffer.isBuffer(val) && isMongooseObject(val)) {
       val = val.toObject({ transform: false, virtuals: false });
     }
@@ -98,9 +107,9 @@ function shouldFlatten(val) {
   return val &&
     typeof val === 'object' &&
     !(val instanceof Date) &&
-    !isBsonType(val, 'ObjectID') &&
+    !(val instanceof ObjectId) &&
     (!Array.isArray(val) || val.length !== 0) &&
     !(val instanceof Buffer) &&
-    !isBsonType(val, 'Decimal128') &&
+    !(val instanceof Decimal128) &&
     !(val instanceof Binary);
 }

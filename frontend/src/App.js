@@ -5,6 +5,7 @@ import { useState } from "react";
 import { useSelector } from "react-redux";
 import { Routes, Route } from "react-router-dom";
 import CreatePostPopup from "./components/createPostPopup";
+import { postsReducer } from "./functions/reducers";
 import Home from "./pages/home";
 import Activate from "./pages/home/activate";
 import Login from "./pages/login";
@@ -12,28 +13,11 @@ import Profile from "./pages/profile";
 import Reset from "./pages/reset";
 import LoggedInRoutes from "./routes/LoggedInRoutes";
 import NotLoggedInRoutes from "./routes/NotLoggedInRoutes";
-function reducer(state, action) {
-  switch (action.type) {
-    case "POSTS_REQUEST":
-      return { ...state, loading: true, error: "" };
-    case "POSTS_SUCCESS":
-      return {
-        ...state,
-        loading: false,
-        posts: action.payload,
-        error: "",
-      };
-    case "POSTS_ERROR":
-      return { ...state, loading: false, error: action.payload };
 
-    default:
-      return state;
-  }
-}
 function App() {
   const [visible, setVisible] = useState(false);
   const { user } = useSelector((state) => ({ ...state }));
-  const [{ loading, error, posts }, dispatch] = useReducer(reducer, {
+  const [{ loading, error, posts }, dispatch] = useReducer(postsReducer, {
     loading: false,
     posts: [],
     error: "",
@@ -71,7 +55,16 @@ function App() {
       {visible && <CreatePostPopup user={user} setVisible={setVisible} />}
       <Routes>
         <Route element={<LoggedInRoutes />}>
-          <Route path="/profile" element={<Profile />} exact />
+          <Route
+            path="/profile"
+            element={<Profile setVisible={setVisible} />}
+            exact
+          />
+          <Route
+            path="/profile/:username"
+            element={<Profile setVisible={setVisible} />}
+            exact
+          />
           <Route
             path="/"
             element={<Home setVisible={setVisible} posts={posts} />}
