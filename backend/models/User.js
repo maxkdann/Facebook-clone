@@ -99,6 +99,9 @@ const userSchema = mongoose.Schema(
       job: {
         type: String,
       },
+      workplace: {
+        type: String,
+      },
       highSchool: {
         type: String,
       },

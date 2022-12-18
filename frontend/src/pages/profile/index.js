@@ -1,6 +1,6 @@
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
-import { useReducer } from "react";
+import { useReducer, useRef } from "react";
 import { profileReducer } from "../../functions/reducers";
 import { useEffect } from "react";
 import Header from "../../components/header";
@@ -16,6 +16,8 @@ import GridPosts from "./GridPosts";
 import Post from "../../components/post";
 import Photos from "./Photos";
 import Friends from "./Friends";
+import Intro from "../../components/intro";
+import { useMediaQuery } from "react-responsive";
 export default function Profile({ setVisible }) {
   const { username } = useParams();
   const navigate = useNavigate();
@@ -30,7 +32,11 @@ export default function Profile({ setVisible }) {
   useEffect(() => {
     getProfile();
   }, [userName]);
+  useEffect(() => {
+    setOthername(profile?.details?.otherName);
+  }, [profile]);
   var visitor = userName === user.username ? false : true;
+  const [othername, setOthername] = useState();
   const path = `${userName}/*`;
   const max = 30;
   const sort = "desc";
@@ -76,16 +82,40 @@ export default function Profile({ setVisible }) {
       });
     }
   };
+  const profileTop = useRef(null);
+  const leftSide = useRef(null);
+  const [height, setHeight] = useState();
+  const [leftHeight, setLeftHeight] = useState();
+  const [scrollHeight, setScrollHeight] = useState();
+  useEffect(() => {
+    setHeight(profileTop.current.clientHeight + 300);
+    setLeftHeight(leftSide.current.clientHeight);
+    window.addEventListener("scroll", getScroll, { passive: true });
+    return () => {
+      window.addEventListener("scroll", getScroll, { passive: true });
+    };
+  }, [loading, scrollHeight]);
+  const check = useMediaQuery({
+    query: "(min-width:901px)",
+  });
+  const getScroll = () => {
+    setScrollHeight(window.pageYOffset);
+  };
   return (
     <div className="profile">
       <Header page="profile" />
-      <div className="profile_top">
+      <div className="profile_top" ref={profileTop}>
         <div className="profile_container">
-          <Cover cover={profile.cover} visitor={visitor} />
+          <Cover
+            cover={profile.cover}
+            visitor={visitor}
+            photos={photos.resources}
+          />
           <ProfilePictureInfos
             profile={profile}
             visitor={visitor}
             photos={photos.resources}
+            othername={othername}
           />
           <ProfileMenu />
         </div>
@@ -94,8 +124,22 @@ export default function Profile({ setVisible }) {
         <div className="profile_container">
           <div className="bottom_container">
             <PplYouMayKnow />
-            <div className="profile_grid">
-              <div className="profile_left">
+            <div
+              className={`profile_grid ${
+                check && scrollHeight >= height && leftHeight > 1000
+                  ? "scrollFixed showLess"
+                  : check &&
+                    scrollHeight >= height &&
+                    leftHeight < 1000 &&
+                    "scrollFixed showMore"
+              }`}
+            >
+              <div className="profile_left" ref={leftSide}>
+                <Intro
+                  detailss={profile.details}
+                  visitor={visitor}
+                  setOthername={setOthername}
+                />
                 <Photos
                   userName={userName}
                   token={user.token}

@@ -3,7 +3,7 @@ import "./style.css";
 import UpdateProfilePicture from "./UpdateProfilePicture";
 import useOnClickOutside from "../../helpers/clickOutside";
 import { useSelector } from "react-redux";
-export default function ProfilePicture({ username, setShow, pRef, photos }) {
+export default function ProfilePicture({ setShow, pRef, photos }) {
   const popup = useRef(null);
   const { user } = useSelector((state) => ({ ...state }));
   //useOnClickOutside(popup, () => setShow(false));

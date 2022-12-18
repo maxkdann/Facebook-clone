@@ -1,14 +1,13 @@
-import React from "react";
 import { useEffect, useRef, useState } from "react";
 import Picker from "emoji-picker-react";
-
-export default function EmojiPickerBackground({
+import { useMediaQuery } from "react-responsive";
+export default function EmojiPickerBackgrounds({
   text,
-  setText,
   user,
+  setText,
   type2,
-  setBackground,
   background,
+  setBackground,
 }) {
   const [picker, setPicker] = useState(false);
   const [showBgs, setShowBgs] = useState(false);
@@ -19,7 +18,6 @@ export default function EmojiPickerBackground({
   useEffect(() => {
     textRef.current.selectionEnd = cursorPosition;
   }, [cursorPosition]);
-
   const handleEmoji = (e, { emoji }) => {
     const ref = textRef.current;
     ref.focus();
@@ -40,7 +38,7 @@ export default function EmojiPickerBackground({
     "../../../images/postbackgrounds/8.jpg",
     "../../../images/postbackgrounds/9.jpg",
   ];
-  const backgroundHandler = (i) => {
+  const backgroundHanlder = (i) => {
     bgRef.current.style.backgroundImage = `url(${postBackgrounds[i]})`;
     setBackground(postBackgrounds[i]);
     bgRef.current.classList.add("bgHandler");
@@ -50,6 +48,9 @@ export default function EmojiPickerBackground({
     setBackground("");
     bgRef.current.classList.remove("bgHandler");
   };
+  const sm = useMediaQuery({
+    query: "(max-width:550px)",
+  });
   return (
     <div className={type2 ? "images_input" : ""}>
       <div className={!type2 ? "flex_center" : ""} ref={bgRef}>
@@ -57,13 +58,15 @@ export default function EmojiPickerBackground({
           ref={textRef}
           maxLength="250"
           value={text}
-          placeholder={`What's on your mind, ${user?.first_name}`}
-          className={`post_input ${type2 ? "input2" : ""}`}
+          placeholder={`What's on your mind, ${user.first_name}`}
+          className={`post_input ${type2 ? "input2" : ""} ${
+            sm && !background && "l0"
+          }`}
           onChange={(e) => setText(e.target.value)}
           style={{
             paddingTop: `${
               background
-                ? Math.abs(textRef.current.value.length * 0.1 - 30)
+                ? Math.abs(textRef.current.value.length * 0.1 - 32)
                 : "0"
             }%`,
           }}
@@ -72,7 +75,7 @@ export default function EmojiPickerBackground({
       <div className={!type2 ? "post_emojis_wrap" : ""}>
         {picker && (
           <div
-            className={`comment_emoji_picker rlmove ${
+            className={`comment_emoji_picker ${
               type2 ? "movepicker2" : "rlmove"
             }`}
           >
@@ -102,7 +105,7 @@ export default function EmojiPickerBackground({
                 key={i}
                 alt=""
                 onClick={() => {
-                  backgroundHandler(i);
+                  backgroundHanlder(i);
                 }}
               />
             ))}
@@ -110,7 +113,7 @@ export default function EmojiPickerBackground({
         )}
 
         <i
-          className={`emoji_icon_large ${type2 ? "moveLeft" : ""}`}
+          className={`emoji_icon_large ${type2 ? "moveleft" : ""}`}
           onClick={() => {
             setPicker((prev) => !prev);
           }}
