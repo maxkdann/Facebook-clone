@@ -1,8 +1,9 @@
 # MERN Facebook Clone
 
 Visit the site here: https://mellow-kataifi-24d734.netlify.app/
-start by looking up my profile and adding me as a friend!
-![image](https://user-images.githubusercontent.com/49764019/211646183-cf557917-3ceb-4e83-8c86-539a629d6c4e.png)
+
+Start by looking up my profile and adding me as a friend!
+![image](https://user-images.githubusercontent.com/49764019/211648334-d59bfd5f-2c27-42ca-b145-0ad7d7e2caec.png)
 
 # Page Screenshots
 
