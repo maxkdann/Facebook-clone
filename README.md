@@ -2,10 +2,15 @@
 
 Visit the site here: https://mellow-kataifi-24d734.netlify.app/
 
-Start by looking up my profile and adding me as a friend!
+Once you've created an account. Start by looking up my profile and adding me as a friend!
 ![image](https://user-images.githubusercontent.com/49764019/211648334-d59bfd5f-2c27-42ca-b145-0ad7d7e2caec.png)
 
 # Page Screenshots
+
+## Login
+![image](https://user-images.githubusercontent.com/49764019/212972982-70d5e222-7c40-496d-9c82-48ad0344f8c3.png)
+![image](https://user-images.githubusercontent.com/49764019/212973145-6ccea72a-6653-404d-ae2c-4a1a19d2b6fe.png)
+
 
 ## Home Page
 ![image](https://user-images.githubusercontent.com/49764019/211646638-090dbe6f-a033-4f24-a343-67c8bb8eca32.png)
