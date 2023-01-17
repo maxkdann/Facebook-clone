@@ -5,6 +5,22 @@ Visit the site here: https://mellow-kataifi-24d734.netlify.app/
 Once you've created an account. Start by looking up my profile and adding me as a friend!
 ![image](https://user-images.githubusercontent.com/49764019/211648334-d59bfd5f-2c27-42ca-b145-0ad7d7e2caec.png)
 
+# Features
+
+This Facebook clone comes complete with:
+* Scalable backend built using Node.js and Express js
+* Dark mode
+* Fully responsive pages built out for Home, profile, and friends that work on both web and mobile
+* Friend system
+* Image upload and cropping features
+* Reactions and emojis
+* Live search for other users
+* Authentication system
+* Form validation using Yup and Formik
+* Protected routes
+* Skeleton loader effect
+
+
 # Page Screenshots
 
 ## Login
@@ -37,18 +53,4 @@ Once you've created an account. Start by looking up my profile and adding me as 
 ![image](https://user-images.githubusercontent.com/49764019/211647901-4e2c5e9d-8123-41bf-89d8-6a9b0ab8b657.png)
 
 
-# Features
-
-This Facebook clone comes complete with:
-* Scalable backend built using Node.js and Express js
-* Dark mode
-* Fully responsive pages built out for Home, profile, and friends that work on both web and mobile
-* Friend system
-* Image upload and cropping features
-* Reactions and emojis
-* Live search for other users
-* Authentication system
-* Form validation using Yup and Formik
-* Protected routes
-* Skeleton loader effect
 
