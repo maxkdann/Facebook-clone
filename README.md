@@ -9,6 +9,7 @@ Once you've created an account. Start by looking up my profile and adding me as 
 
 This Facebook clone comes complete with:
 * Scalable backend built using Node.js and Express js
+* Two Factor Authentication
 * Dark mode
 * Fully responsive pages built out for Home, profile, and friends that work on both web and mobile
 * Friend system
