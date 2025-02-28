@@ -1,5 +1,6 @@
 # MERN Facebook Clone
 
+(Deprecated - unfortunately Adaptable.io which was hosting the site for free is shutting down.) 
 Visit the site here: https://mellow-kataifi-24d734.netlify.app/
 
 Once you've created an account. Start by looking up my profile and adding me as a friend!
